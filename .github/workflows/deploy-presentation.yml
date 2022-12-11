@@ -1,0 +1,16 @@
+name: deploy presentation
+
+on:
+  push:
+    paths:
+      - "presentation/**"
+    branches:
+      - main
+
+jobs:
+  deploy-presentation:
+    - name: deploy presentation
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./presentation
